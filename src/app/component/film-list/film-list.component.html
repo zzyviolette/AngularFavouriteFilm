@@ -1,0 +1,17 @@
+<div *ngIf="filmList.length == 0">
+    <p class="alert alert-info">{{alertMsg}}</p>
+</div>
+
+<div *ngIf="filmList.length != 0">
+    <ul class="list-group">
+        <li class="list-group-item"  *ngFor="let film of filmList; index as i" (click)="openFilmModal(i)" >
+            <span class="text-center">{{film.Title}}</span>
+            <button *ngIf="!favoris" class="btn btn-danger float-right " (click) = "deleteFilm(i)">Delete</button>
+            <!-- check the value of isFavoris, page home will show the delete button -->
+            <!-- methode event.stopPropagation() to avoid show modal when we change the state of isFavoris of selected item-->
+            <ui-switch [checked]="film.isFavoris? true : false" (click)="film.isFavoris = !film.isFavoris; $event.stopPropagation();" color="#5bc0de" class="float-right pr-3 "></ui-switch>     
+        </li>
+    </ul>
+</div>
+
+<app-film-detail-modal></app-film-detail-modal>

@@ -1,0 +1,18 @@
+<div class="container pages pb-5 text-justify">
+<!-- search form -->
+    <form>
+    <label> {{ searchResult }}</label>
+    <div class="input-group mb-3 text-light">          
+        <input #film class="form-control" list="films" placeholder="Search film ..." [formControl]="filmFormControl" type=text id="title" autocomplete="off" autofocus>
+            <div class="input-group-append">
+                <a class="btn btn-info" (click)="addFilm(film)">Add new film</a>
+            </div>
+        <datalist id="films">
+            <option *ngFor="let film of searchFilms" >{{film.Title}}</option>
+        </datalist>              
+    </div>
+    </form>
+
+    <app-film-list [filmList] = 'filmSer.films' [favoris]= 'false' [alertMsg]='alertMsg' (showFilmDetailModalEvent) = "getShowFilmDetailModalEvent($event)" (deleteFilmEvent)="getDeleteFilmEvent($event)"></app-film-list>
+
+</div>

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* NgxSmartModal variables override */
+$color-overlay: rgba(0, 0, 0, .7);
+$dialog-position-top: 10%;
+.wide-modal {
+    min-width: 500px; 
+  }
+@import "~ngx-smart-modal/ngx-smart-modal";
+
+.pages{
+    padding-top: 54px;
+}

@@ -1,0 +1,5 @@
+<div class="container pages pb-5 text-justify">
+    <!-- filmList : the source data of list of films (only the films has value of isFavoris is true) -->
+    <!-- favoris : to distinguer the parent component for child component (film-list-component) -->
+    <app-film-list [filmList] = 'filmSer.getFavoris()' [favoris]= 'true' [alertMsg]='alertMsg' (showFilmDetailModalEvent) = "getShowFilmDetailModalEvent($event)"></app-film-list>
+</div>
